@@ -8,7 +8,14 @@
   width:384px;
   margin: 50px auto;
 }
-
+a {
+	text-align: centre;
+	width: 500px;
+	margin: 40px;
+	font-size: 50px;
+	font-style: normal;
+	font-family: "Verdana","Times New Roman",Sans-Serif;
+}
 p {
   display: block;
   width: 400px;
