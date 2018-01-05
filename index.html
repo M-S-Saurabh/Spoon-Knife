@@ -15,6 +15,175 @@
 <p>
   Fork me? Fork you, @octocat!
 </p>
+<p>
+  import numpy as np
 
+def sigmoid(x):
+        return 1/(1+np.exp(-x))
+
+def sigmoidp(x):
+        return x*(1-x)
+
+classlist = ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
+conjlist = ['no', 'yes', 'not', 'without', 'with', 'but', 'and', 'minus', 'plus', 'sans', 'neither', 'nor', 'either', 'or', 'both', 'all', 'of', 'include', 'exclude', 'nothing', 'none', 'except', 'remove', 'absent']
+
+fx = open('xfile.txt', 'r')
+fy = open('yfile.txt', 'r')
+
+word_vec_list = fx.readlines()
+out_vec_list = fy.readlines()
+count = 0
+conj_ohv_dic = {}
+
+print('Assigning one hot vector to each conjunction')
+for conj in conjlist:
+        temp = np.zeros(len(conjlist))
+        temp[count] = 1
+        count = count + 1
+        conj_ohv_dic[conj] = temp
+
+count = 0
+new_list = []
+
+print('word vector list count ')
+print(len(word_vec_list))
+for word_vec in word_vec_list:
+        word_vec = word_vec.replace(',', '')
+        word_vec = word_vec.replace('.', '')
+        word_vec = word_vec.replace(';', '')
+        word_vec = word_vec.rstrip('\n')
+        word_list = word_vec.split(' ')
+        out_vec = out_vec_list[count]
+        out_vec = out_vec.rstrip('\n')
+        out_list = out_vec.split(' ')
+        count = count + 1
+        classcnt = len(out_list)
+        #print(word_list)
+        classmatch = 0
+        for word in word_list:
+                if word in classlist:
+                        out = out_list[classmatch]
+                        classmatch = classmatch + 1
+                        idx = word_list.index(word)
+                        templist = []
+                        for ctr in range(0, idx):
+                                if word_list[ctr] in conjlist:
+                                        templist.append(word_list[ctr])
+                        new_list.append([templist, out])
+                        #print(templist)
+        if(classmatch != classcnt):
+                print('Error in parsing data. mismatch in class and results')
+
+word_dim = len(conjlist)
+hidden_dim = 10
+np.random.seed(10)
+learning_rate = 0.01
+
+U = np.random.uniform(-np.sqrt(1. / word_dim), np.sqrt(1. / word_dim), (hidden_dim, word_dim))
+W = np.random.uniform(-np.sqrt(1. / hidden_dim), np.sqrt(1. / hidden_dim), (hidden_dim, hidden_dim))
+V = np.random.uniform(-np.sqrt(1. / hidden_dim), np.sqrt(1. / hidden_dim), (1, hidden_dim))
+
+#print(U)
+#print(V)
+#print(W)
+for abc in range(1):
+        for i in range(len(new_list)):
+                X = []
+                S = []
+                wordlist = new_list[i][0]
+                for j in range(len(wordlist)):
+                        X.append(conj_ohv_dic[wordlist[j]])
+                Y = new_list[i][1]
+
+                S.append(np.zeros(hidden_dim))
+
+                num_layer = len(X)
+                for k in range(num_layer):
+                        temp = np.tanh(np.dot(U, X[k]) + np.dot(W, S[k]))
+                        S.append(temp)
+
+                Zn = np.dot(V, S[-1])
+                Yn = sigmoid(Zn[0])
+
+                dEdYn = (np.float64(Y[0]) - Yn)
+                dYndZn = sigmoidp(Zn[0])			## should be sigmoidp(Yn) ??
+                dZndV = S[-1]
+                dEdV = dEdYn*dYndZn*dZndV
+
+                dZndSn = V
+
+                dEdW = np.zeros((hidden_dim, hidden_dim))
+                dSdWmn = []
+                dSdWmn.append(np.zeros((hidden_dim, hidden_dim, hidden_dim)))
+                for m in range(hidden_dim):
+                        for n in range (hidden_dim):
+                                dSlminus1dWmn = np.zeros(hidden_dim)
+                                for l in range (num_layer):
+                                        dSlminus1dWmn[m] = S[l][n]
+                                        dSdWmn.append(np.zeros((hidden_dim, hidden_dim, hidden_dim)))
+                                        dSdWmn[l+1][m][n] = (1 - S[l+1]**2)*(dSlminus1dWmn + np.dot(W, dSdWmn[l][m][n]))
+
+                                dEdW[m][n] = np.dot(dEdYn*dYndZn*dZndSn, dSdWmn[num_layer][m][n])
+
+                dEdU = np.zeros((hidden_dim, word_dim))
+                dSdUmn = []
+                dSdUmn.append(np.zeros((hidden_dim, word_dim, hidden_dim)))
+                for m in range(hidden_dim):
+                        for n in range (word_dim):
+                                dSlminus1dUmn = np.zeros(hidden_dim)
+                                for l in range (len(X)):
+                                        dSlminus1dUmn[m] = X[l][n]
+                                        dSdUmn.append(np.zeros((hidden_dim, word_dim, hidden_dim)))
+                                        dSdUmn[l+1][m][n] = (1 - S[l+1]**2)*(dSlminus1dUmn + np.dot(W, dSdUmn[l][m][n]))
+
+                                dEdU[m][n] = np.dot(dEdYn*dYndZn*dZndSn, dSdUmn[num_layer][m][n])
+
+                #print(dEdU)
+                #print(dEdV)
+                #print(dEdW)
+
+                U = U - learning_rate*dEdU
+                V = V - learning_rate*dEdV
+                W = W - learning_rate*dEdW
+
+#print(U)
+#print(V)
+#print(W)
+
+passed = 0
+failed = 0
+
+for i in range(len(new_list)):
+        X = []
+        S = []
+        wordlist = new_list[i][0]
+        for j in range(len(wordlist)):
+                X.append(conj_ohv_dic[wordlist[j]])
+        Y = new_list[i][1]
+
+        S.append(np.zeros(hidden_dim))
+
+        num_layer = len(X)
+        for k in range(num_layer):
+                temp = np.tanh(np.dot(U, X[k]) + np.dot(W, S[k]))
+                S.append(temp)
+
+        Zn = np.dot(V, S[-1])
+        Yn = sigmoid(Zn[0])
+
+        if(Yn >= 0.5):
+                Yn = 1
+        else:
+                Yn = 0
+
+        if(Yn == np.float64(Y[0])):
+                passed = passed + 1
+        else:
+                failed = failed + 1
+
+print(passed)
+print(failed)
+  
+</p>
 </body>
 </html>
