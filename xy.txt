@@ -1,0 +1,201 @@
+get me images of aeroplane and bicycle
+show me images of person but exclude images with cow
+images of motorbike, bicycle but with neither cat nor dog
+images containing person without car
+show me all person images where there are no bird
+cat images only
+horse and dog but not chair
+show me all my pottedplant images
+images where there are no sheep or boat
+do not show images without diningtable
+please show me images with no sofa or tvmonitor
+cat plus dog plus cow minus sheep
+pictures of person sans those of train
+show me all kinds of dog and cat pictures i have, without any bird or boat
+tvmonitor, diningtable with no chair but all the pottedplant
+photos containing aeroplane, bird and boat
+show me all images which do not have bus
+images of either motorbike or bicycle
+no images of sofa but yes to bus
+all images excluding those of bottle but including chair, tvmonitor, and boat
+photos with no car, dog, horse and also no bottle
+no photos having bird, cow, cat, dog and sheep
+all images of person and train but none having sofa
+all photos of tvmonitor minus those of pottedplant and aeroplane
+photographs only of chair and sofa
+images of pottedplant and bottle without both aeroplane and cow
+train , car and aeroplane sans boat
+pictures of all boat, bottle, bus, horse and diningtable
+i want images of motorbike and none containing bus
+images of aeroplane  without person and train but yes to car
+images having chair and diningtable but without person
+all person images with no images which do not contain dog
+images not containing both dog and sheep
+cat and cow but not bird and boat
+horse and bottle without cow or sofa
+photographs of chair with no pottedplant and those of cow but no tvmonitor
+all of the boat images and none of the sheep and dog ones
+sofa, chair and tvmonitor but without motorbike plus boat
+images of horse, chair and bus minus images of either sheep or cat plus images of dog
+pictures of my bicycle and car where there are no person or dog
+images of boat or bottle or of cow and person
+images of train excluding those of boat plus images of aeroplane or of chair
+images of nothing but bird
+images not of bottle, chair or cow but of pottedplant
+no photos of motorbike and train but only of bus and diningtable
+tvmonitor pics sans person pics
+pictures of either horse or of chair but not cow
+no images of either pottedplant or of bicycle but those with person
+picature not of sheep and bottle but either of cat or dog
+images having diningtable, pottedplant and tvmonitor but not of bird, dog or horse
+pictures of car and dog but not those containing cat and aeroplane
+no pictures of bicycle, sheep or horse
+all pictures except those containing motorbike and train
+pictures of pottedplant including those of bird
+all chair pictures except those of sofa and tvmonitor
+pictures not of bottle but of boat
+pictures of all car excluding those of aeroplane
+images of cow and sheep except those having horse
+no images of cow and sheep except those having horse
+photos of person with dog without the ones having bus or pottedplant
+sheep and not dog plus cat and not horse
+pictures with no sheep, none with horse, and also none with bottle
+images not of motorbike and bicycle except with chair
+tvmonitor with neither car nor sofa but train
+images of all cat, dog and sheep except with bird
+images without tvmonitor except with car
+photos of cat exclude diningtable and pottedplant
+diningtable with pottedplant and bottle include cat and person
+pictures from the boat with person and horse exclude dog
+photographs of sheep with bicycle and nothing with aeroplane
+no photos of bus and car but only chair plus sofa
+pictures of cow, horse and sheep but neither pottedplant nor diningtable
+pictures not of cow, horse and sheep except either of bird or boat
+all cow images except those which contain horse with bottle
+show me images of all motorbike but of bicycle
+images of bus or person and not sofa
+get me photos of chair minus sofa plus bottle minus cat
+remove images of pottedplant but not of bird
+pictures of cow and remove those of sheep
+show tvmonitor images where dog are not present
+all images with train, bus and car images exclude
+images of diningtable where both dog and cat are present
+images from bird watching trip on my motorbike
+images of dog with person absent
+aeroplane and boat but nothing with dog and horse
+all images with no chair but only sofa and bottle
+cow and horse images minus images with sheep
+images minus images of both motorbike and pottedplant
+images with either diningtable or tvmonitor but exclude cat
+pics of my sofa and tvmonitor without pottedplant
+pictures without train but both bicycle and bus
+pictures with dog, bottle and bird  but neither motorbike nor chair
+boat with bottle with horse images exclude
+exclude images of car and person with bicycle
+pictures of bus or chair and include no cat or train
+dog and car excluding diningtable and aeroplane
+exclude neither dog nor cat and include bus
+images excluding all motorbike except bicycle
+images of sheep minus those of pottedplant and not chair
+get me pictures of my sofa and tvmonitor exclude if they have dog
+
+1 1
+1 0
+1 1 0 0
+1 0
+1 0
+1
+1 1 0
+1
+0 0
+1
+0 0
+1 1 1 0
+1 0
+1 1 0 0
+1 1 0 1
+1 1 1
+0
+1 1
+0 1
+0 1 1 1
+0 0 0 0
+0 0 0 0 0
+1 1 0
+1 0 0
+1 1
+1 1 0 0
+1 1 1 0
+1 1 1 1 1
+1 0
+1 0 0 1
+1 1 0
+1 1
+0 0
+1 1 0 0
+1 1 0 0
+1 0 1 0
+1 0 0
+1 1 1 0 0
+1 1 1 0 0 1
+1 1 0 0
+1 1 1 1
+1 0 1 1
+1
+1 1 1 0
+0 0 1 1
+1 0
+1 1 0
+0 0 1
+0 0 1 1
+1 1 1 0 0 0
+1 1 0 0
+0 0 0
+0 0
+1 1
+1 0 0
+0 1
+1 0
+1 1 0
+0 0 1
+1 1 0 0
+1 0 1 0
+0 0 0
+0 0 1
+1 0 0 1
+1 1 1 0
+0 1
+1 0 0
+1 1 1 1 1
+1 1 1 0
+1 1 0
+0 0 1 1
+1 1 1 0 0
+0 0 0 1 1
+1 0 0
+1 0
+1 1 0
+1 0 1 0
+0 1
+1 0
+1 0
+0 0 0
+1 1 1
+1 1
+1 0
+1 1 0 0
+0 1 1
+1 1 0
+0 0
+1 1 0
+1 1 0
+0 1 1
+1 1 1 0 0
+1 1 0
+0 0 0
+1 1 0 0
+1 1 0 0
+1 1 1
+0 1
+1 0 1
+1 1 0
